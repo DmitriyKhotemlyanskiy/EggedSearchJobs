@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<tabs>
+   <Tab text="FIND ITEM">
+      <content>
+         <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0">
+            <children>
+               <FlowPane prefHeight="88.0" prefWidth="800.0">
+                  <children>
+                        <ComboBox fx:id="findBy" prefWidth="150.0" promptText="Find by" />
+                     <TextField fx:id="txtFieldFind" prefHeight="25.0" prefWidth="485.0" promptText="find">
+                        <FlowPane.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </FlowPane.margin>
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                     </TextField>
+                     <Button fx:id="buttonFind" mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Find" textFill="#058316">
+                        <FlowPane.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </FlowPane.margin>
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                     </Button>
+                        <Button fx:id="buttonAdd" mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="ADD NEW ITEM" textFill="#d90b0b">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                  </children>
+               </FlowPane>
+               <TableView fx:id="tableFind" prefHeight="520.0" prefWidth="790.0" tableMenuButtonVisible="true">
+                  <columns>
+                     <TableColumn fx:id="columnBarcodeFind" prefWidth="87.0" text="BARCODE" />
+                     <TableColumn fx:id="columnNameFind" prefWidth="333.0" text="NAME" />
+                     <TableColumn fx:id="columnAmountFind" prefWidth="110.0" text="AMOUNT" />
+                     <TableColumn fx:id="columnPriceFind" prefWidth="99.0" text="PRICE" />
+                     <TableColumn fx:id="columnStorageFind" prefWidth="60.0" text="STORAGE" />
+                        <TableColumn fx:id="columnEdit" prefWidth="147.0" text="EDIT" />
+                  </columns>
+                  <opaqueInsets>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </opaqueInsets>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </TableView>
+                  <Label fx:id="statusLbl" prefHeight="22.0" prefWidth="309.0" text="Status" textFill="#d30e0e">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </Label>
+            </children>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+         </VBox>
+      </content>
+   </Tab>
+   <Tab text="ADD ITEM TO DATABASE">
+      <content>
+         <FlowPane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+            <children>
+               <TextField fx:id="txtFieldAddBarcode" prefHeight="25.0" prefWidth="106.0" promptText="BARCODE">
+                  <FlowPane.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </FlowPane.margin>
+               </TextField>
+               <TextField fx:id="txtFieldAddName" prefHeight="25.0" prefWidth="397.0" promptText="NAME">
+                  <FlowPane.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </FlowPane.margin>
+               </TextField>
+               <TextField fx:id="txtFieldAddAmount" prefHeight="25.0" prefWidth="68.0" promptText="AMOUNT">
+                  <FlowPane.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </FlowPane.margin>
+               </TextField>
+               <TextField fx:id="txtFieldAddPrice" prefHeight="25.0" prefWidth="99.0" promptText="PRICE">
+                  <FlowPane.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </FlowPane.margin>
+               </TextField>
+               <TextField fx:id="txtFieldAddStorage" prefHeight="25.0" prefWidth="68.0" promptText="STORAGE">
+                  <FlowPane.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </FlowPane.margin>
+               </TextField>
+               <Button fx:id="buttonInsertNewItem" mnemonicParsing="false" prefHeight="25.0" prefWidth="788.0" text="INSERT A NEW ITEM TO THE DATABASE">
+                  <font>
+                     <Font name="Arial Bold" size="14.0" />
+                  </font>
+               </Button>
+               <TableView fx:id="tableInsertItem" prefHeight="520.0" prefWidth="790.0" tableMenuButtonVisible="true">
+                  <columns>
+                     <TableColumn fx:id="columnBarcodeInsert" prefWidth="100.0" text="BARCODE" />
+                     <TableColumn fx:id="columnNameInsert" prefWidth="439.0" text="NAME" />
+                     <TableColumn fx:id="columnAmountInsert" prefWidth="78.0" text="AMOUNT" />
+                     <TableColumn fx:id="columnPriceInsert" prefWidth="85.0" text="PRICE" />
+                     <TableColumn fx:id="columnStorageInsert" prefWidth="73.0" text="STORAGE" />
+                  </columns>
+                  <opaqueInsets>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </opaqueInsets>
+                  <FlowPane.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </FlowPane.margin>
+               </TableView>
+            </children>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+         </FlowPane>
+      </content>
+   </Tab>
+</tabs>
+</TabPane>
