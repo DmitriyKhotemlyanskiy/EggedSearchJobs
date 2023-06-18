@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World!</title>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <ul> <! getting data from a structures by its fields>
+            <li>{{.Name}} - {{.Motto}}</li>
+        </ul>
+        <ul> 
+            <! Can also store fields in a variables>
+            {{$x := .Name}}
+            {{$y := .Motto}}
+            <li>{{$x}} - {{$y}}</li>
+        </ul>
+    </body>
+</html>
