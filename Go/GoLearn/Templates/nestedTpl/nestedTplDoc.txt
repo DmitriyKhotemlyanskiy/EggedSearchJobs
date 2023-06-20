@@ -1,0 +1,6 @@
+define:
+{{define "TemplateName"}}
+insert content here
+{{end}}
+use:
+{{template "TemplateName"}}
