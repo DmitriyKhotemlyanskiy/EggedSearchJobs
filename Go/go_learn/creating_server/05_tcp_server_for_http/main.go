@@ -42,7 +42,7 @@ func request(conn net.Conn) {
 		fmt.Println(ln)
 		if i == 0 {
 			//request line
-			m := strings.Fields(ln)[0]
+			m := strings.Fields(ln)[0] //method
 			fmt.Println("****Method", m)
 		}
 		if ln == "" {

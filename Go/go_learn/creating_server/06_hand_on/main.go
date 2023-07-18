@@ -42,8 +42,10 @@ func request(conn net.Conn) {
 		fmt.Println(ln)
 		if i == 0 {
 			//request line
-			m := strings.Fields(ln)[0]
+			m := strings.Fields(ln)[0] //method
+			u := strings.Fields(ln)[1] //url
 			fmt.Println("****Method", m)
+			fmt.Println("****URL", u)
 		}
 		if ln == "" {
 			//headers are done
@@ -54,9 +56,18 @@ func request(conn net.Conn) {
 }
 
 func response(conn net.Conn) {
-	body := `<!DOCTYPE html><html lang="en"><head><meta
-	 charset="UTF-8"><title></title></head><body><strong>Hello World</strong>
-	 <scrypt><button type="submit" name="formBtn">Submit</button></scrypt></body></html>`
+	body := `<!DOCTYPE html>
+	<html lang="en">
+		<head><meta charset="UTF-8">
+			<title></title>
+		</head>
+		<body>
+			<strong>Hello World</strong>
+	 		<scrypt>
+	 			<button type="submit" name="formBtn">Submit</button>
+	 		</scrypt>
+	 	</body>
+	 </html>`
 
 	fmt.Fprint(conn, "HTTP/1.1 200 OK\r\n")
 	fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body))
