@@ -26,5 +26,5 @@ func main() {
 		fmt.Fprintln(conn, "How is your day?")
 		fmt.Fprintf(conn, "%v", "Well, I hope!")
 	}
-	//Use "telnet localhost 8080" for see response from the server
+	//Use "telnet localhost 8080" to see response from the server
 }
