@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"net"
 )
@@ -14,7 +15,7 @@ func main() {
 	}
 
 	defer li.Close()
-	fmt.Println("Server started at port 8080. Try insert in your CMD -> telnet localhost 8080, and then write something to server")
+
 	for {
 		conn, err := li.Accept()
 		if err != nil {
@@ -26,13 +27,11 @@ func main() {
 }
 
 func handle(conn net.Conn) {
-	scanner := bufio.NewScanner(conn)
-	for scanner.Scan() {
-		ln := scanner.Text()
-		fmt.Println(ln)
-		fmt.Fprintf(conn, "I heard you say: %s\n", ln) //write to the connection
+	scan := bufio.NewScanner(conn)
+	for scan.Scan() {
+		fmt.Println(scan.Text())
 	}
 	defer conn.Close()
-
 	fmt.Println("Code got here.")
+	io.WriteString(conn, "I see you connected.")
 }
