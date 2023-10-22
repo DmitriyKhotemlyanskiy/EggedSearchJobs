@@ -1,0 +1,74 @@
+body{
+    padding: 20px;
+}
+
+a.button{
+    border: solid 1px rgb(0,9,0);
+    padding:3px;
+    background-color: rgb(50, 50, 50);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none; /*убрать подчеркивание ссылки*/
+    font-size:1.3em;
+}
+a.button:hover{
+    border: solid 1px rgb(189, 81, 31);
+    padding:3px;
+    background-color: rgb(222, 222, 222);
+    color: #000;
+    border-radius: 4px;
+    text-decoration: none; /*убрать подчеркивание ссылки*/
+    font-size:1.3em;
+}
+
+span.button2{
+    position: relative;
+    background-position: left top;
+    width:76px;
+    height:78px;
+    background-image: url(../img/2101275.jpg);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    display: inline-block;
+}
+span.button2:hover{
+    background-position: left top -122px;
+    cursor: pointer;
+    background-origin: content-box;
+}
+
+ul.nav{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+ul.nav a{
+    display: inline-block;
+    border: solid 1px rgb(0,9,0);
+    padding:3px;
+    background-color: rgb(50, 50, 50);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none; /*убрать подчеркивание ссылки*/
+    font-size:1.3em;
+    margin:3px;
+    
+}
+
+ul.nav1{
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+ul.nav1 li{
+    display: inline;
+}
+ul.nav1 a{
+    display: inline-block;
+    border: 1px solid gray;
+    padding: 5px 10px;
+    background: rgb(50, 50, 50);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}

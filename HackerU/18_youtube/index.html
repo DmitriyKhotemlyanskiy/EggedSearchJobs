@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Веб-формы</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+<body>
+	<article>
+		<h1>Форма ученика HTML</h1>
+        <form method="post" action="#" class="subform">
+            <p>
+                <lable for="name">What is your name?</lable>
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <lable for="email">Enter your email</lable>
+                <input type="email" name="email" id="email">
+            </p>
+            <p>
+                Есть опыт в изучении:
+                <lable>
+                    <input type="radio" name="skill" value="1">
+                    JavaScript
+                </lable>
+                <lable>
+                    <input type="radio" name="skill" value="2">
+                    HTML & CSS
+                </lable>
+                <lable>
+                    <input type="radio" name="skill" value="3">
+                    PHP
+                </lable>
+                <lable>
+                    <input type="radio" name="skill" value="4">
+                    Go
+                </lable>
+            </p>
+            <p>
+                <lable for="goal">Какую цель преследую:</lable>
+                <select name="goal" id="goal">
+                    <option>Хочу сменить профессию</option>
+                    <option>Повысить скилл</option>
+                    <option>Как хобби</option>
+                    <option>Хочу быть фрилансером</option>
+                </select>
+            </p>
+            <p>
+                <lable for="comments">Ваше пожелание</lable>
+                <textarea name="comments" cols="40" rows="5" id="comments"></textarea>
+            </p>
+            <p>
+                <input type="submit" value="Send">
+            </p>
+        </form>
+    </article>
+</body>
+</html>

@@ -1,0 +1,22 @@
+body{
+    padding: 20px;
+}
+p{
+    width: 50%;
+    border: 1px solid gray;
+    padding: 5px 10px;
+    float: left; /*сдвиг элементов влево*/
+    /*margin: 10px;*/
+    box-sizing: border-box; /*учитывает в размеры отступы*/
+}
+div{
+    width:40%;
+    border: 1px solid rgb(200, 200, 116);
+    min-height: 200px;
+    background: greenyellow;
+    float: left; /*если есть блоки у которых задан float, то остальным важным элементам так же нужно задать float, для правильного отображения*/
+}
+p.test3{
+    clear: left; /*сбросить обтекание слева*/
+    /*clear: both; - сбросить обтекание слева и справа*/
+}

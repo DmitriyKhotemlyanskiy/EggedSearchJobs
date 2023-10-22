@@ -1,0 +1,43 @@
+body{
+    padding: 20px;
+}
+h1{
+    font-family: Helvetica, Arial, Verdana;
+    /*можно добавлять шрифты из fonts.google.com*/
+    text-shadow: -3px 5px 2px #999; /*(1)смещение по горизонтали, (2)смещение по вертикали, (3)размытость, (4)цвет*/
+}
+h2::first-letter{ /*применение стилей для первой буквы*/
+    font-size: 40px;
+    font-weight: bold;
+}
+p{
+    font-size: 1.2em;
+    font-weight: bold; /*bold - жирный, bolder - жирнее, normal - обычный*/
+    font-style: italic; /*italic - курсив*/
+    color: gray;
+    text-transform: uppercase; /*uppercase - текст в верхнем регистре*/
+    font-variant: small-caps;
+    text-decoration: none;
+    line-height: 150%; /*Межстрочный интервал*/
+    text-align: justify; /*justify - растягивание текста, right, left, center*/
+    text-indent: 20px; /*отступ первой строки*/
+    border: 1px solid;
+    margin-top: 20px; /*внешний отступ сверху*/
+    padding-bottom: 30px; /*внутренний отступ снизу*/
+
+}
+p:hover{
+    text-decoration: underline;/*подчеркивание при наведении курсором*/
+    letter-spacing: 1px; /*Расстояние между символами*/
+    word-spacing: -1px; /*Расстояние между словами*/
+}
+a:hover{
+    text-decoration: underline; /*подчеркивание при наведении курсором*/
+}
+ol{
+    list-style-type: upper-roman; /*disc- закрашенный кружок, circle- пустрой кружок, square- квадрат, upper-alpha- заглавные буквы,upper-roman- римские цифры */
+    list-style-position: inside; /*outside*/
+    border: 1px solid;
+    list-style-image: url(../img/1.png); /*вставить изображение вместо указателей списка*/
+
+}

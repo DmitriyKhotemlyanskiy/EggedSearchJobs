@@ -1,0 +1,43 @@
+body{
+    padding: 20px;
+    margin: 0 auto;
+    width: 960px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    font-size: 2em;
+    border-bottom: dotted 2px gray;
+    padding-bottom: 10px;
+}
+p{
+    padding: 10px;
+}
+.subform{
+    font-size: 1.1em;
+    color:blueviolet;
+}
+.subform lable{
+    display:inline-block;
+    vertical-align: top;
+    text-align: left;
+    font-weight: bold;
+}
+.subform input[type="submit"]{
+    margin-left: 19.5%;
+    padding: 12px 24px;
+    font-size: 1em;
+    background: wheat;
+    border-radius: 4px;
+    box-shadow: 4px 2px 3px black;
+}
+.subform input[type="submit"]:hover{
+    background: goldenrod;
+    box-shadow: 5px 3px 4px black;
+}
+.subform input[type="submit"]:active{
+    box-shadow: inset 4px 2px 4px black;
+}
+
+.subform input[type="radio"]{
+    margin-left: 30px;
+}

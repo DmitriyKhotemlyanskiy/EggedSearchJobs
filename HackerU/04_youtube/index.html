@@ -1,0 +1,49 @@
+<!--read more about <input>, <form> in https://htmlbook.ru -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Web Forms</title>
+    </head>
+    <body>
+        <form action="/" method="">
+            <input type="text" name="personName" maxlength="12" value="Dima" disabled><br>
+            <input type="text" name="personFirst" maxlength="16" placeholder="Khotem"><br>
+            <input type="password" name="pass" maxlength="12" placeholder="password"><br>
+            <input type="reset" name="sbros"><br> <!--reset all changes you did before-->
+            <input type="submit" name="submit" value="send"><br>
+<!--If you have many choises -> use type="checkbox" and set the same name for each checkbox to group them together-->            
+            One <input type="checkbox" name="myName" value="apple"> <!--value="somethink" -> somethink will send to server when you choose this checkbox-->
+            Two <input type="checkbox" name="myName" value="orange">
+            Three <input type="checkbox" name="myName" value="banana"><br>
+<!--If you need only one input -> use type="radio" and set the same name for each radio-->
+            One<input type="radio" name="na">
+            Two<input type="radio" name="na">
+            Three<input type="radio" name="na"><br>
+            <button type="submit">New button</button><br>
+            <textarea name="text" cols="40" rows="8" placeholder="Some text here:"></textarea><br>
+<!--<label> with attribute for="input_id" you can make a choise with click on the word-->
+           <label for="one">One</label> <input id="one" type="checkbox" name="myName" value="apple"> 
+           <label for="two">Two</label> <input id="two" type="checkbox" name="myName" value="orange">
+           <label for="three">Three</label> <input id="three" type="checkbox" name="myName" value="banana"><br>
+
+           <select name="test">
+                <option>A</option>
+                <option selected>B</option>
+                <option value="c">C</option>
+                <option>D</option>
+                <option>E</option>
+           </select><br><br>
+
+           <select name="test2" size="2" multiple>
+            <option>A</option>
+            <option selected>B</option>
+            <option value="c">C</option>
+            <option>D</option>
+            <option>E</option>
+       </select>
+
+        </form>
+    </body>
+</html>

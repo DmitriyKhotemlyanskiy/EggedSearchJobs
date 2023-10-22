@@ -1,0 +1,21 @@
+body{
+    padding: 20px;
+    /*Направления линейного градиента: left, top, bottom, right*/
+    /*Направления линейного градиента в градусах: 48deg/125deg...*/
+    /*background-image: linear-gradient(125deg, gray, white);*/
+    background-image: linear-gradient(to right, gray, white);
+}
+p.test1{
+    background-image:   linear-gradient(yellow, transparent),
+                        linear-gradient(120deg, green, transparent),
+                        linear-gradient(200deg, blue, transparent);
+}
+
+p.test2{
+    /*Радиальный градиент движется от центра наружу*/
+    /*Можно добавить слово circle чтобы градиент рисовался ровным кругом*/
+    /*background-image:   radial-gradient(circle, red, blue);*/
+    /*Чтобы сдвинуть центр градиента можно указать процентное соотношение*/
+    /*background-image:   radial-gradient(circle at 30% 50%, red, blue);*/
+    background-image:   radial-gradient(red, blue);
+}

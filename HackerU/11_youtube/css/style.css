@@ -1,0 +1,23 @@
+body{
+    padding: 20px;
+}
+p.test{
+    padding:10px; /*отступ внутри*/
+    border: 1px solid #f53; /*dashed - пунктир, dotted - точки, double - двойная линия, */
+    margin: 20px; /*отступ снаружи*/
+}
+p.test2{
+    padding: 10px 15px 25px 2px; /*отступ внутри: верх, право, низ, лево*/
+    border: 1px solid #f53;
+    margin: 20px 3px; /*отступ снаружи: верх и низ, лево и право*/ 
+}
+p.test strong{
+    border: 1px solid #693;
+    margin-top: 30px;
+    display: inline-block; /*позволяет относиться к строчному элементу как к блочному*/
+}
+li{
+    display: inline; /*перевели блочный список в строчное отображение*/
+    text-transform: uppercase;
+    color:rgb(255, 98, 0);
+}

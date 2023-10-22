@@ -1,0 +1,11 @@
+img[title="twitter logo"]{
+   width: 100px; 
+}
+a[href="https://google.com"]{
+    color: black;
+    font-size: 20px;
+}
+a[href="https://tekila.com"]{
+    color: green;
+    font-size: 30px;
+}

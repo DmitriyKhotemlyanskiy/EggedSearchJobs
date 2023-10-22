@@ -1,0 +1,45 @@
+body{
+    background: rgba(50,122,160, 0.9); /*rgb: 0-255. rgba(red, green, blue, Transparency(0-1))*/
+    padding: 0 20px 20px 20px; /*padding- отступ внутри элемента: top, rigth, bottom, left*/
+    margin: 30px 0 0 0; /*margin - отступ снаружи элемента*/
+}
+article{
+    max-width: 760px;
+    margin: 0 auto; /*top = 0 and bottom = 0, for left and right = auto - content in screen center*/
+}
+p{
+    color: rgb(255,255,255);
+    font-size: 1em; /*1em = 16px, (px, em, %)*/
+    font-family: "Lobster", Arial, Helvetica, sans-serif; /*Семейство шрифтов по порядку*/
+    /* fonts.googleapis.com - сервис для подключения шрифтов */
+}
+h1, h2, h3{
+    color: rgb(255,255,255);
+    font-family: Arial, "Palatino Linotype", serif;
+    border-bottom: 2px solid #ff3412; /*Толщина, тип полосы, цвет*/
+    /*border, border-top, border-left, border-right*/
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+h1{
+    font-size: 2em;
+}
+#logo{
+    font-family: Baskerville, Palatino, sans-serif;
+    font-size: 2.1em;
+    color: rgba(255,255,255,0.8);
+    font-style: italic; /*Текст будет курсивный*/
+    text-align: center; /*Выравнивание текста*/
+    margin-bottom: 26px;
+    background: rgb(190, 180, 110);
+    border-radius: 0 0 10px 10px; /*Закругление углов рамки (верх-слева, верх-справа, низ-справа, низ-слева)*/
+    padding: 12px;
+}
+.note{
+    color: #000000;
+    border: 2px solid, #fff;
+    background: rgb(69, 180, 105);
+    margin-top: 22px;
+    margin-bottom: 30px;
+    padding: 8px;
+}

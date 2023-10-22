@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Ex</title>
+    </head>
+    <body>
+        <script>
+            function login(){
+                let pass = Pass.value;
+                if (pass == "hacker123"){
+                    Output.innerHTML = "Welcome to the system {](*_*)[}";
+                } else {
+                    Output.innerHTML = "Your password is wrong";
+                }
+            }
+            function login2(){
+                let log = Login2.value;
+                let pass = Pass2.value;
+
+                if (log == "hackeru" && pass == "hacker123"){
+                    Output2.innerHTML = "Welcome to the system {](*_*)[}";
+                } else {
+                    Output2.innerHTML = "Wrong password or login";
+                }
+            }
+        </script>
+
+        <h3>Enter your password</h3>
+        <input type="text" id="Pass"><br><br>
+        <button onclick="login()">Login to system</button>
+        <h2 id="Output"></h2>
+
+
+        <h3>Enter your password and login</h3>
+        Login: <input type="text" id="Login2"><br><br>
+        Password: <input type="password" id="Pass2"><br><br>
+        <button onclick="login2()">Login to system</button>
+        <h2 id="Output2"></h2>
+    
+    </body>
+</html>

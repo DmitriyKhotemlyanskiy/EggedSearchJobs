@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Lesson 5</title>
+    </head>
+    <body>
+        <script>
+            //ex-4
+            function departmentOfMotorVehicles(){
+                let age = Number(prompt("How old are you?"));
+                if (age < 16){
+                    alert("You can't drive");
+                } else if (age >= 16 && age <= 18){
+                    alert("You can start learning to drive");
+                } else if (age > 18 && age < 70){
+                    alert("You can drive");
+                } else {
+                    alert("You can drive on a doctor's recommendation");
+                }
+            }
+
+            //ex-5
+            function fittingRoom(){
+                let size = Number(prompt("What is your size?"));
+                if (size >= 24 && size <= 30){
+                    alert("Your size is S-(small)");
+                } else if (size > 30 && size <= 36){
+                    alert("Your size is M-(medium)");
+                } else if (size > 36){
+                    alert("Your size is L-(large)");
+                } else {
+                    alert("Sorry, we don't have your size");
+                }
+            }
+
+            //ex-6
+            function evenNumber(){
+                let num = Number(prompt("Enter your number: "));
+                if (num % 2 == 0){
+                    alert("Even Number");
+                } else {
+                    alert("Odd Number");
+                }
+            }
+
+            //ex-7
+            function calculator(){
+                let num1 = Number(prompt("Enter first number"));
+                let num2 = Number(prompt("Enter second number"));
+                let op = prompt("Enter (+) or (*)");
+                if (op == "+"){
+                    alert(num1 + num2);
+                } else if (op == "*"){
+                    alert(num1 * num2);
+                } else {
+                    alert("Wrong operator.");
+                }
+            }
+
+            //ex-8
+            function login(){
+                let log = prompt("Enter your login");
+                let pass = prompt("Enter your password");
+                if (log == "" && pass == ""){
+                    alert("Enter your login and password");
+                } else if (log == "" && pass != ""){
+                    alert("Enter your login");
+                } else if (log != "" && pass == ""){
+                    alert("Enter your password");
+                } else if (log == "hackeru" && pass == "hacker123"){
+                    alert("Welcome to system");
+                } else {
+                    alert("Wrong password or login");
+                }
+            }
+            //function change the title h1 after clicking on a button
+            function change(){
+                let x = firstName.value;
+                myTitle.innerHTML = x;
+                myTitle.style.color = "green";
+            }
+        </script>
+
+    <button onclick="departmentOfMotorVehicles();">Ex-4</button><br><br>
+    <button onclick="fittingRoom();">Ex-5</button><br><br>
+    <button onclick="evenNumber();">Ex-6</button><br><br>
+    <button onclick="calculator();">Ex-7</button><br><br>
+    <button onclick="login();">Ex-8</button><br><br>
+
+    <!--A little bit about JS DOM-->
+    <h1 id="myTitle">JS DOM</h1>
+    <input type="text" id="firstName"> 
+    <button onclick="change()">Click me</button>
+
+    
+    </body>
+</html>

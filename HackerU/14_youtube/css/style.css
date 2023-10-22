@@ -1,0 +1,11 @@
+body{
+    padding: 20px;
+    background-image: url(../img/img1.jpg); /*gif, jpg, png, svg. Через запятую можно добавлять более одного изображения на фон.*/
+    /*по умолчанию заполняет копиями изображения всю страницу*/
+    background-repeat: no-repeat; /*repeat-x, repeat-y*/
+    background-position: center top; /*center, right, bottom, left. Можно указывать по 2 значения*/
+    background-attachment: fixed; /*зафиксировать фон, при скроллинге он остается на месте.*/
+    background-origin: border-box; /*padding-box, etc.*/
+    background-size: 850px 1200px; /*задать точные размеры изображения*/
+    color:aliceblue;
+}

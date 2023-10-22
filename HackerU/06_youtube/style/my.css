@@ -1,0 +1,35 @@
+a:hover{
+    color: red;
+}
+a:active{
+    font-size: 30px;
+}
+a:link{
+    color:green;
+}
+a:visited{
+    color: gray;
+}
+p:first-letter{
+    font-size: 30px;
+    color: red;
+}
+p:first-line{
+    font-weight: bold;
+}
+input:focus{
+    background: #fffccc;
+    border-color: red;
+}
+.test:before{
+    content: "Added text by before function!!!!!";
+    /*Псевдо класс добавляет контент, который нельзя выделять и копировать*/
+}
+.test:after{
+    content: "Add text after";
+    color: red;
+}
+p::selection{
+    color: white;
+    background: black;
+}

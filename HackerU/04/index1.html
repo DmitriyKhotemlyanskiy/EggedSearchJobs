@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lesson 4</title>
+    </head>
+    <body>
+        <script>
+            function market(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number"));
+                let z = Number(prompt("Enter third number"));
+                let total = x+y+z;
+            alert("with delivery -> " + (total+20));
+            }
+
+            function superMarket(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number"));
+                let z = Number(prompt("Enter third number"));
+                let total = x+y+z;
+                alert("Sum -> " + (total)); 
+                let sale = Number(prompt("discount amount"));
+                alert("Sum after discount -> " + (total-sale));
+            }
+
+            function isBig(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number"));
+                alert(x > y);
+            }
+
+            function isBigger(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number"));
+                let z = Number(prompt("Enter third number"));;
+                alert(x > y || x > y);
+            }
+
+            function isBiggest(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number")); 
+                let z = Number(prompt("Enter third number"));
+                alert(x > y && x > z);
+            }
+        </script>
+
+        <button onclick="market();">Ex-6</button><br><br>
+        <button onclick="superMarket();">Ex-7</button><br><br>
+        <button onclick="isBig();">Ex-8</button><br><br>
+        <button onclick="isBigger();">Ex-9</button><br><br>
+        <button onclick="isBiggest();">Ex-10</button><br><br>
+
+
+        <script>
+            //ex1
+            function login(){
+                let pass = prompt("Enter password");
+                if (pass == "hacker123"){
+                    alert("Welcome to system");
+                } else {
+                    alert("The password is wrong");
+                }
+            }
+            //ex2
+            function login2(){
+                let login = prompt("Enter your login");
+                let pass = prompt("Enter your password");
+                if (login == "hackeru" && pass == "hacker123"){
+                    alert("Welcome to system");
+                } else {
+                    alert("Wrong passwor or login name");
+                }
+            }
+            //ex3
+            function carLicense(){
+                let age = Number(prompt("How old are you?"));
+                if (age < 16){
+                    alert("You can't drive");
+                } else {
+                    alert("You can start to learn driving");
+                }
+            }
+        </script>
+    </body>
+</html>

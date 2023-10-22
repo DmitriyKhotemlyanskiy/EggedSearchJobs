@@ -1,0 +1,36 @@
+body{
+    padding: 20px;
+}
+p.test{
+    border: 1px solid #f53; /*dashed - пунктир, dotted - точки, double - двойная линия, */
+    background: rgb(102, 154, 206);
+    border-radius: 16px; /*скругление углов*/
+    padding: 5px;
+    width: 50%; /*ширина контента в окне браузера*/
+    height: 100px; /*высота контента в окне браузера, не задавать если не известны точные размеры контента*/
+    overflow: auto; /*auto - то что не влазит в рамки будет скролиться, hidden - контент обрезается, visible - по умолчанию, видно за рамками */
+}
+p.test2{
+    border: 1px solid #f53;
+    border-radius: 0 20px 10px 40px;
+    padding: 10px;
+    box-sizing: padding-box; /*прочитать об этом свойстве*/
+}
+li{
+    display: inline; /*перевели блочный список в строчное отображение*/
+}
+p{
+    box-shadow: inset 4px 4px 8px #000; /*inset - тень внутрь, */
+    max
+}
+#bott:hover{
+    background: rgb(212, 118, 99);
+}
+#bott:active{
+    box-shadow: inset 4px 4px 8px #000;
+}
+#bott{
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px #000;
+}

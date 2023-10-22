@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="en">
+        <title>Lesson 4</title>
+    </head>
+    <body>
+        <script>
+            //
+            function foo() {
+                alert("Function called");
+            }
+        </script>
+        <script>
+            let x = Number(prompt("Enter first number"));
+            let y = Number(prompt("Enter second number"));
+            let z = Number(prompt("Enter third number"));
+            alert(x+y);
+        </script>
+
+        <script>
+            let total = x+y+z;
+            alert(total);
+        </script>
+            
+        <script>
+            alert("with delivery -> " + (total+20));
+        </script>
+
+        <script>
+            let sale = Number(prompt("discount amount"));
+            alert("with delivery and after discount -> " + (total+20-sale));
+        </script>
+
+        <script>
+            x = Number(prompt("Enter first number"));
+            y = Number(prompt("Enter second number"));
+            alert(x > y);
+        </script>
+
+        <script>
+            z = Number(prompt("Enter third number"));
+            alert(x > y || x > y);
+        </script>
+
+        <script>
+            x = Number(prompt("Enter first number"));
+            y = Number(prompt("Enter second number")); 
+            z = Number(prompt("Enter third number"));
+            alert(x > y && x > z);
+        </script>
+
+        <script>
+            function sayHola(){
+                let name = prompt("What is your name?");
+                alert("Hola " + name);
+            }
+
+            function hola(){
+                let name = prompt("What is your name?");
+                let family = prompt("What is your last name?");
+                alert("Hola " + name + " " + family);
+            }
+
+            function welcome(){
+                let name = prompt("What is your name?");
+                let family = prompt("What is your last name?");
+                alert("Hola " + name + " " + family + " you are welcome");
+            }
+
+            function plus(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number"));
+                alert(x + y);
+            }
+
+            function plusPlus(){
+            let x = Number(prompt("Enter first number"));
+            let y = Number(prompt("Enter second number"));
+            let z = Number(prompt("Enter third number"));
+            alert(x + y + z);
+            }
+        </script>
+
+        <button onclick="sayHola();">sayHola_EX1</button><br>
+        <button onclick="hola();">Hola_EX2</button><br>
+        <button onclick="welcome();">welcome_EX3</button><br>
+        <button onclick="plus();">plus_EX4</button><br>
+        <button onclick="plusPlus();">plusPlus_EX5</button><br>
+
+
+        <script>
+            function market(){
+            let x = Number(prompt("Enter first number"));
+            let y = Number(prompt("Enter second number"));
+            let z = Number(prompt("Enter third number"));
+            let total = x+y+z;
+            alert("with delivery -> " + (total+20));
+            }
+
+            function superMarket(){
+            let x = Number(prompt("Enter first number"));
+            let y = Number(prompt("Enter second number"));
+            let z = Number(prompt("Enter third number"));
+            let total = x+y+z;
+            alert("Sum -> " + (total)); 
+            let sale = Number(prompt("discount amount"));
+            alert("Sum after discount -> " + (total-sale));
+            }
+
+            function isBig(){
+             let x = Number(prompt("Enter first number"));
+            let y = Number(prompt("Enter second number"));
+            alert(x > y);
+            }
+
+            function isBigger(){
+            let x = Number(prompt("Enter first number"));
+            let y = Number(prompt("Enter second number"));
+            let z = Number(prompt("Enter third number"));;
+                alert(x > y || x > y);
+            }
+
+            function isBiggest(){
+                let x = Number(prompt("Enter first number"));
+                let y = Number(prompt("Enter second number")); 
+                let z = Number(prompt("Enter third number"));
+                alert(x > y && x > z);
+            }
+        </script>
+
+        <button onclick="market();">Ex-6</button><br><br>
+        <button onclick="superMarket();">Ex-7</button><br><br>
+        <button onclick="isBig();">Ex-8</button><br><br>
+        <button onclick="isBigger();">Ex-9</button><br><br>
+        <button onclick="isBiggest();">pEx-10</button><br><br>
+
+
+
+    </body>
+</html>
