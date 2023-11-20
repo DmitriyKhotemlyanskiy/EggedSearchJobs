@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Egged work times database</title>
+        <link rel="stylesheet" type="text/css" href="../23_egged/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../23_egged/css/style.css">
+
+    </head>
+    <body>
+        <main role="main" class="inner-cover" dir="rtl">
+            <h1>Buses work time form</h1>
+            <form action="/save_work" method="post">
+                <input type="text" name="perek" id="perek" placeholder="פרק">
+                <input type="text" name="tat-perek" id="tat-perek" placeholder="תת פרק">
+                <input type="text" name="code" id="code" placeholder="מספר עבודה">
+                <textarea name="tiur-peula" id="tiur-peula" rows="10" placeholder="תאור פאולה"></textarea>
+                <label>
+                    סקניה ב"ע יורו 5 סוטראק
+                    <input type="checkbox" name="bus" value="סקניה ב.ע יורו 5 סוטראק">
+                    <input type="number" class="zman-avoda" id="scania-euro5-ba" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    מרצדס OC500 ב"ע 5
+                    <input type="checkbox" name="bus" value="מרצדס OC500 ב.ע 5">
+                    <input type="number" class="zman-avoda" id="oc500-euro5-ba" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    מאן עירוני יורו 5
+                    <input type="checkbox" name="bus" value="מאן עירוני יורו 5">
+                    <input type="number" class="zman-avoda" id="man-euro5-a" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    וולוו B12B יורו 5
+                    <input type="checkbox" name="bus" value="וולוו B12B יורו 5">
+                    <input type="number" class="zman-avoda" id="volvo-B12B-euro5" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    דאף SB4000 יורו 5
+                    <input type="checkbox" name="bus" value="דאף SB4000 יורו 5">
+                    <input type="number" class="zman-avoda" id="daf-sb4000-euro5" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    יוטונג ב"ע יורו 6
+                    <input type="checkbox" name="bus" value="יוטונג ב.ע יורו 6">
+                    <input type="number" class="zman-avoda" id="yutong-euro6-ba" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    סקניה עירוני יורו 5
+                    <input type="checkbox" name="bus" value="סקניה עירוני יורו 5">
+                    <input type="number" class="zman-avoda" id="scania-euro5-a" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    גולדן דרגון ב"ע יורו 6
+                    <input type="checkbox" name="bus" value="גולדן דרגון ב.ע יורו 6">
+                    <input type="number" class="zman-avoda" id="golden-dragon-euro6-ba" placeholder="זמן עבודה">
+                </label>
+                    <button id="btn-save">save</button>
+            </form>
+        </main>
+
+    </body>
+</html>

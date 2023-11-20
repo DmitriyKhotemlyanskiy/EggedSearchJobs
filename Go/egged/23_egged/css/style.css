@@ -1,0 +1,42 @@
+form{
+    display:flex;
+    flex-direction:column;
+    padding-top: 30px;
+    padding-right: 40px;
+    position:relative;
+}
+h1{
+    text-align: center;
+    font-size: 2em;
+}
+#perek{
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+}
+#tat-perek{
+    width: 250px;
+    margin: 5px;
+    padding: 5px;
+}
+#code{
+    width: 100px;
+    margin: 5px;
+    padding: 5px;
+}
+#tiur-peula{
+    width: 400px;
+    margin: 5px;
+    padding: 5px;
+}
+label{
+    margin: 5px;
+}
+#btn-save{
+    width: 50px;
+    height: 30px;
+    margin: 5px 100px 20px 0px;
+}
+.zman-avoda{
+    padding: 5px;
+}
