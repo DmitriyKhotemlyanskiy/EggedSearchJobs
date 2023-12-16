@@ -3,63 +3,91 @@
     <head>
         <meta charset="UTF-8">
         <title>Egged work times database</title>
-        <link rel="stylesheet" type="text/css" href="/css/reset.css">
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/table_style.css">
 
     </head>
     <body>
+        <header>
+            <h1>Quickly search for codes and job descriptions</h1>
+
+                
+        </header>
         <main role="main" class="inner-cover" dir="rtl">
-            <h1>Buses work time form</h1>
-            <div class="msg" dir="ltr" style="padding: 30px; text-align: right; font-size: 1.5em; color: goldenrod; background: gray;">
-                {{range $i, $err := .Error}}
-                <p>{{$err}}</p><br>
-                {{end}}
-                <p>{{.LastJob}}</p>
+            <div id="search_table" name="search_table">
+                <table id="table">
+                    <tr>
+                        <th class="table_head">
+                            <form action="search_bus_name" method="get" id="bus_id">
+                                <lable for="bus_ids">אוטובוס</lable>
+                                <select id="bus_ids" name="bus_ids">
+                                    <option value="1">מרצדס OC500</option>
+                                    <option value="2">דאף</option>
+                                    <option value="3">גולדן דרגון</option>
+                                    <option value="4">מאן</option>
+                                    <option value="5">סקניה</option>
+                                    <option value="6">וולוו B12B</option>
+                                    <option value="7">יוטונג</option>
+                                </select>
+                                <button id="search_bus_name">s</button>
+                            </form>
+                        </th>
+                        <th class="table_head">
+                            <form action="search_job_code" method="get" id="job_code">
+                                <lable for="job_codes">מס' עבודה</lable>
+                                <input type="text" name="job_codes" id="job_codes" placeholder="חפש מספר עבודה">
+                                <button id="search_job_code">s</button>
+                            </form>
+                        </th>
+                        <th class="table_head">
+                            <form action="search_job_desc" method="get" id="description">
+                                <lable for="job_description">תאור פעולה</lable>
+                                <input type="text" name="job_description" id="job_description" placeholder="חפש תאור פעולה">
+                                <select id="bus_ids" name="bus_ids">
+                                    <option value="1">מרצדס OC500</option>
+                                    <option value="2">דאף</option>
+                                    <option value="3">גולדן דרגון</option>
+                                    <option value="4">מאן</option>
+                                    <option value="5">סקניה</option>
+                                    <option value="6">וולוו B12B</option>
+                                    <option value="7">יוטונג</option>
+                                </select>
+                                <button id="search_job_desc">s</button>
+                            </form>
+                        </th>
+                        <th class="table_head">
+                            <form>
+                                <lable for="time">זמן עבודה</lable>
+                            </form>
+                        </th>
+                        <th class="table_head">
+                            <form action="search_chapter" method="get" id="chapter">
+                                <lable for="chapter_name">פרק</lable>
+                                <input type="text" name="chapter_name" id="chapter_name" placeholder="חפש פרק">
+                                <button id="search_chapter">s</button>
+                            </form>
+                        </th>
+                        <th class="table_head">
+                            <form action="subsearch_chapter" method="get" id="subchapter">
+                                <lable for="subchapter_name">תת פרק</lable>
+                                <input type="text" name="subchapter_name" id="subchapter_name" placeholder="חפש תת פרק">
+                                <button id="subsearch_chapter">s</button>
+                            </form>
+                        </th>
+                    </tr>
+                        {{range $i := .}}
+                            <tr>
+                                <td>{{$i.BusName}}</td>
+                                <td>{{$i.Code}}</td>
+                                <td>{{$i.Description}}</td>
+                                <td>{{$i.JobTime}}</td>
+                                <td>{{$i.Chapter}}</td>
+                                <td>{{$i.Subchapter}}</td>
+                            </tr>
+                        {{end}}
+                    
+                </table>
             </div>
-
-            <form action="/save_buses" method="post">
-                <input type="text" name="chapter" id="chapter" placeholder="פרק">
-                <input type="text" name="subchapter" id="subchapter" placeholder="תת פרק">
-                <input type="text" name="code" id="code" placeholder="מספר עבודה" value="">
-                <textarea name="op-description" id="op-description" rows="20" placeholder="תאור פאולה" value="huy" style="width: 400px; margin: 5px; font-size: 1.3em; padding: 10px;"></textarea>
-                <label>
-                    1    Mercedes Benz OC500 בין עירוני
-                    <input type="checkbox" name="bus1" placeholder="מרצדס OC500 ב.ע 6" value="1">
-                    <input type="number" name="job-time1" class="job-time" placeholder="זמן עבודה">
-                </label>
-                <label>
-                    2    DAF SB4000 euro-5 בין עירוני
-                    <input type="checkbox" name="bus2" placeholder="דאף SB4000 יורו 5" value="2">
-                    <input type="number" name="job-time2" class="job-time" placeholder="זמן עבודה">
-                </label>
-                <label>
-                    3    Golden Dragon euro-6 בין עירוני | עירוני
-                    <input type="checkbox" name="bus3" placeholder="גולדן דרגון ב.ע יורו 6" value="3">
-                    <input type="number" name="job-time3" class="job-time" placeholder="זמן עבודה">
-                </label>
-                <label>
-                    4    MAN euro-5 עירוני
-                    <input type="checkbox" name="bus4" placeholder="מאן עירוני יורו 5" value="4">
-                    <input type="number" name="job-time4" class="job-time" placeholder="זמן עבודה">
-                </label>
-                <label>
-                    5    Scania euro-5/6 עירוני
-                    <input type="checkbox" name="bus5" placeholder="סקניה עירוני יורו 5" value="5">
-                    <input type="number" name="job-time5" class="job-time" placeholder="זמן עבודה">
-                </label>
-                <label>
-                    6    Volvo B12B euro-5 בין עירוני
-                    <input type="checkbox" name="bus6" placeholder="וולוו B12B יורו 5" value="6">
-                    <input type="number" name="job-time6" class="job-time" placeholder="זמן עבודה">
-                </label>
-                <label>
-                    7    Yutong Lion/Tiger euro-6 בין עירוני
-                    <input type="checkbox" name="bus7" placeholder="יוטונג ב.ע יורו 6" value="7">
-                    <input type="number" name="job-time7" class="job-time" placeholder="זמן עבודה">
-                </label>
-
-                <button id="btn-save">save</button>
-            </form>
         </main>
 
     </body>

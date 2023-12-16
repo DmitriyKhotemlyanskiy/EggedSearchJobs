@@ -9,7 +9,7 @@ import (
 )
 
 func GetDB() (db *sql.DB) {
-	db, err := sql.Open("mysql", "root:Dimas7729981hot@tcp(127.0.0.1:3306)/egged")
+	db, err := sql.Open("mysql", "root:Dimas7729981hot@tcp(92.205.131.156:3306)/egged")
 	if err != nil {
 		log.Fatal(err)
 	}

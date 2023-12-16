@@ -84,6 +84,150 @@ func saveBases(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func searchByBusName(w http.ResponseWriter, r *http.Request) {
+	db := config.GetDB()
+	defer db.Close()
+	//var msg entities.Errors
+	var searchRes []entities.Search
+	busId := r.FormValue("bus_ids")
+
+	res, err := db.Query("SELECT `name`, `job_description`, `job_time`, `job_code`, `chapter`, `subchapter`"+
+		"FROM `egged`.`job_description` AS `j_d`"+
+		"JOIN `egged`.`bus_job` AS `b_j`"+
+		"ON `j_d`.`j_code` = `b_j`.`job_code`"+
+		"JOIN `egged`.`buses` AS `b`"+
+		"ON `b_j`.`bus_id` = `b`.`id`"+
+		"WHERE `b`.`id` = ?;", busId)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	for res.Next() {
+		var search entities.Search
+		err = res.Scan(&search.BusName, &search.Description, &search.JobTime, &search.Code, &search.Chapter, &search.Subchapter)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		searchRes = append(searchRes, search)
+	}
+	tpl.ExecuteTemplate(w, "index.html", searchRes)
+
+}
+
+func searchByDesc(w http.ResponseWriter, r *http.Request) {
+	db := config.GetDB()
+	defer db.Close()
+	var searchRes []entities.Search
+	text := r.FormValue("job_description")
+	busId := r.FormValue("bus_ids")
+	fmt.Println("From search form: ", text)
+	res, err := db.Query("SELECT `name`, `job_description`, `job_time`, `job_code`, `chapter`, `subchapter`"+
+		"FROM `egged`.`job_description` AS `j_d`"+
+		"JOIN `egged`.`bus_job` AS `b_j`"+
+		"ON `j_d`.`j_code` = `b_j`.`job_code`"+
+		"JOIN `egged`.`buses` AS `b`"+
+		"ON `b_j`.`bus_id` = `b`.`id`"+
+		"WHERE `j_d`.`job_description` LIKE ? AND `b`.`id` = ?", "%"+text+"%", busId)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Println(res)
+	for res.Next() {
+		var search entities.Search
+		err = res.Scan(&search.BusName, &search.Description, &search.JobTime, &search.Code, &search.Chapter, &search.Subchapter)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		searchRes = append(searchRes, search)
+		fmt.Println(search)
+	}
+	tpl.ExecuteTemplate(w, "index.html", searchRes)
+}
+
+func searchByCode(w http.ResponseWriter, r *http.Request) {
+	db := config.GetDB()
+	defer db.Close()
+	//var msg entities.Errors
+	var searchRes []entities.Search
+	jobCode := r.FormValue("job_codes")
+
+	res, err := db.Query("SELECT `name`, `job_description`, `job_time`, `job_code`, `chapter`, `subchapter`"+
+		"FROM `egged`.`job_description` AS `j_d`"+
+		"JOIN `egged`.`bus_job` AS `b_j`"+
+		"ON `j_d`.`j_code` = `b_j`.`job_code`"+
+		"JOIN `egged`.`buses` AS `b`"+
+		"ON `b_j`.`bus_id` = `b`.`id`"+
+		"WHERE `b_j`.`job_code` LIKE ?;", "%"+jobCode+"%")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	for res.Next() {
+		var search entities.Search
+		err = res.Scan(&search.BusName, &search.Description, &search.JobTime, &search.Code, &search.Chapter, &search.Subchapter)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		searchRes = append(searchRes, search)
+	}
+	tpl.ExecuteTemplate(w, "index.html", searchRes)
+
+}
+
+func searchByChapter(w http.ResponseWriter, r *http.Request) {
+	db := config.GetDB()
+	defer db.Close()
+	//var msg entities.Errors
+	var searchRes []entities.Search
+	chapter := r.FormValue("chapter_name")
+
+	res, err := db.Query("SELECT `name`, `job_description`, `job_time`, `job_code`, `chapter`, `subchapter`"+
+		"FROM `egged`.`job_description` AS `j_d`"+
+		"JOIN `egged`.`bus_job` AS `b_j`"+
+		"ON `j_d`.`j_code` = `b_j`.`job_code`"+
+		"JOIN `egged`.`buses` AS `b`"+
+		"ON `b_j`.`bus_id` = `b`.`id`"+
+		"WHERE `j_d`.`chapter` LIKE ?;", "%"+chapter+"%")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	for res.Next() {
+		var search entities.Search
+		err = res.Scan(&search.BusName, &search.Description, &search.JobTime, &search.Code, &search.Chapter, &search.Subchapter)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		searchRes = append(searchRes, search)
+	}
+	tpl.ExecuteTemplate(w, "index.html", searchRes)
+
+}
+
+func searchBySubchapter(w http.ResponseWriter, r *http.Request) {
+	db := config.GetDB()
+	defer db.Close()
+	//var msg entities.Errors
+	var searchRes []entities.Search
+	subchapter := r.FormValue("subchapter_name")
+
+	res, err := db.Query("SELECT `name`, `job_description`, `job_time`, `job_code`, `chapter`, `subchapter`"+
+		"FROM `egged`.`job_description` AS `j_d`"+
+		"JOIN `egged`.`bus_job` AS `b_j`"+
+		"ON `j_d`.`j_code` = `b_j`.`job_code`"+
+		"JOIN `egged`.`buses` AS `b`"+
+		"ON `b_j`.`bus_id` = `b`.`id`"+
+		"WHERE `j_d`.`subchapter` LIKE ?;", "%"+subchapter+"%")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	for res.Next() {
+		var search entities.Search
+		err = res.Scan(&search.BusName, &search.Description, &search.JobTime, &search.Code, &search.Chapter, &search.Subchapter)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		searchRes = append(searchRes, search)
+	}
+	tpl.ExecuteTemplate(w, "index.html", searchRes)
+}
 func main() {
 	db := config.GetDB()
 	defer db.Close()
@@ -95,6 +239,11 @@ func main() {
 	//defer insert.Close()
 	http.HandleFunc("/", home_page)
 	http.HandleFunc("/save_buses", saveBases)
+	http.HandleFunc("/search_bus_name", searchByBusName)
+	http.HandleFunc("/search_job_desc", searchByDesc)
+	http.HandleFunc("/search_job_code", searchByCode)
+	http.HandleFunc("/search_chapter", searchByChapter)
+	http.HandleFunc("/subsearch_chapter", searchBySubchapter)
 
 	//подтягивать css файлы к сайту с помощъю слудующей функии:
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
