@@ -10,72 +10,48 @@
     <body>
         <header>
             <h1>Quickly search for codes and job descriptions</h1>
-
-                
+            <form action="search_bus_name" method="get" id="bus_id" dir="rtl">
+                <lable for="bus_ids">אוטובוס</lable>
+                <select id="bus_ids" name="bus_ids">
+                    {{range .Options}}
+                        <option value="{{.Value}}" {{if .Selected}}selected{{end}}>{{.Text}}</option>
+                    {{end}}
+                </select>
+                <input type="submit" formaction="/search_bus_name" value="s">
         </header>
         <main role="main" class="inner-cover" dir="rtl">
             <div id="search_table" name="search_table">
                 <table id="table">
                     <tr>
                         <th class="table_head">
-                            <form action="search_bus_name" method="get" id="bus_id">
-                                <lable for="bus_ids">אוטובוס</lable>
-                                <select id="bus_ids" name="bus_ids">
-                                    <option value="1">מרצדס OC500</option>
-                                    <option value="2">דאף</option>
-                                    <option value="3">גולדן דרגון</option>
-                                    <option value="4">מאן</option>
-                                    <option value="5">סקניה</option>
-                                    <option value="6">וולוו B12B</option>
-                                    <option value="7">יוטונג</option>
-                                </select>
-                                <button id="search_bus_name">s</button>
-                            </form>
+                            <label>אוטובוס</label>
                         </th>
                         <th class="table_head">
-                            <form action="search_job_code" method="get" id="job_code">
-                                <lable for="job_codes">מס' עבודה</lable>
-                                <input type="text" name="job_codes" id="job_codes" placeholder="חפש מספר עבודה">
-                                <button id="search_job_code">s</button>
-                            </form>
+                            <lable for="job_codes">מס' עבודה</lable>
+                            <input type="text" name="job_codes" id="job_codes" placeholder="חפש מספר עבודה">
+                            <input type="submit" formaction="/search_job_code" value="s">
                         </th>
                         <th class="table_head">
-                            <form action="search_job_desc" method="get" id="description">
-                                <lable for="job_description">תאור פעולה</lable>
-                                <input type="text" name="job_description" id="job_description" placeholder="חפש תאור פעולה">
-                                <select id="bus_ids" name="bus_ids">
-                                    <option value="1">מרצדס OC500</option>
-                                    <option value="2">דאף</option>
-                                    <option value="3">גולדן דרגון</option>
-                                    <option value="4">מאן</option>
-                                    <option value="5">סקניה</option>
-                                    <option value="6">וולוו B12B</option>
-                                    <option value="7">יוטונג</option>
-                                </select>
-                                <button id="search_job_desc">s</button>
-                            </form>
+                            <lable for="job_description">תאור פעולה</lable>
+                            <input type="text" name="job_description" id="job_description" placeholder="חפש תאור פעולה">
+                            <input type="submit" formaction="/search_job_desc" value="s">
                         </th>
                         <th class="table_head">
-                            <form>
                                 <lable for="time">זמן עבודה</lable>
-                            </form>
                         </th>
                         <th class="table_head">
-                            <form action="search_chapter" method="get" id="chapter">
-                                <lable for="chapter_name">פרק</lable>
-                                <input type="text" name="chapter_name" id="chapter_name" placeholder="חפש פרק">
-                                <button id="search_chapter">s</button>
-                            </form>
+                            <lable for="chapter_name">פרק</lable>
+                            <input type="text" name="chapter_name" id="chapter_name" placeholder="חפש פרק">
+                            <input type="submit" formaction="/search_chapter" value="s">
                         </th>
                         <th class="table_head">
-                            <form action="subsearch_chapter" method="get" id="subchapter">
-                                <lable for="subchapter_name">תת פרק</lable>
-                                <input type="text" name="subchapter_name" id="subchapter_name" placeholder="חפש תת פרק">
-                                <button id="subsearch_chapter">s</button>
-                            </form>
+                            <lable for="subchapter_name">תת פרק</lable>
+                            <input type="text" name="subchapter_name" id="subchapter_name" placeholder="חפש תת פרק">
+                            <input type="submit" formaction="/subsearch_chapter" value="s">
+            </form>
                         </th>
                     </tr>
-                        {{range $i := .}}
+                        {{range $i := .SearchRes}}
                             <tr>
                                 <td>{{$i.BusName}}</td>
                                 <td>{{$i.Code}}</td>

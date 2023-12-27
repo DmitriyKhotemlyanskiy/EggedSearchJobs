@@ -53,3 +53,18 @@ func (j *Job) SetJobTime(err *Errors, arr ...string) {
 		}
 	}
 }
+func (j Job) GetBusId() []string {
+	var retString []string
+	for bus := range j.BusId {
+		retString = append(retString, strconv.Itoa(bus))
+	}
+	return retString
+}
+
+func (j Job) GetJobTime() []string {
+	var retString []string
+	for time := range j.JobTime {
+		retString = append(retString, strconv.Itoa(time))
+	}
+	return retString
+}
