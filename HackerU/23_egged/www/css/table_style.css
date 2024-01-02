@@ -1,6 +1,6 @@
 body{
     background-color: rgb(194, 243, 201);
-    box-shadow: 5px 5px 5px grey;
+    /*box-shadow: 5px 5px 5px grey;*/
     font-family:Arial, Helvetica, sans-serif;
 }
 #bus_id{
@@ -16,14 +16,35 @@ h1{
     text-align: center;
     font-size: 2em;
     font-weight: bold;
+    padding: 10px 0px 20px 0px;
 }
-.table_head{
-
+select{
+    padding: 3px;
+    margin: 4px;
+}
+button{
+    padding:3px 7px 3px 7px;
+    margin:0px;
+    border-radius: 6px;
+}
+input{
+    border-radius: 6px;
+    padding: 3px;
+    padding-right: 5px;
+    margin: 0px;
+}
+lable{
+    font-size: 1.2em;
+    padding: 5px;
+}
+.search_area{
+    display: flexbox;
 }
 #table{
     border-collapse: collapse;
     width: 100%;
     text-align: right;
+    /*box-shadow: 5px 5px 5px grey;*/
 }
 
 th, td {
@@ -39,7 +60,7 @@ th{
 tr:nth-child(even) {
     background-color: lightgreen;
 }
-input[type=search] {
+/*input[type=search] {
     width: 80%;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -54,7 +75,4 @@ input[type=search] {
 
 input[type=search]:focus {
     border: 2px solid green;
-}
-#table {
-    box-shadow: 5px 5px 5px grey;
-}
+}*/
