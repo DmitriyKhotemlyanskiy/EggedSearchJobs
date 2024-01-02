@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Egged work times database</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/table_style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <header>
+            <h1>Quickly search for codes and job descriptions</h1>
+            <form action="search_bus_name" method="get" id="bus_id" dir="rtl">
+                <lable for="bus_ids">אוטובוס</lable>
+                <select id="bus_ids" name="bus_ids">
+                    {{range .Options}}
+                        <option value="{{.Value}}" {{if .Selected}}selected{{end}}>{{.Text}}</option>
+                    {{end}}
+                </select>
+                <button type="submit" formaction="/search_bus_name"><i class="fa fa-search"></i></button>
+        </header>
+        <main role="main" class="inner-cover" dir="rtl">
+            <div id="search_table" name="search_table">
+                <table id="table">
+                    <tr>
+                        <th class="table_head">
+                            <lable>אוטובוס</lable>
+                        </th>
+                        <th class="table_head">
+                            <lable for="job_codes">מס' עבודה</lable>
+                            <input type="text" name="job_codes" id="job_codes" placeholder="חפש מספר עבודה">
+                            <button type="submit" formaction="/search_job_code"><i class="fa fa-search"></i></button>
+                        </th>
+                        <th class="table_head">
+                            <lable for="job_description">תאור פעולה</lable>
+                            <input type="text" name="job_description" id="job_description" placeholder="חפש תאור פעולה">
+                            <button type="submit" formaction="/search_job_desc"><i class="fa fa-search"></i></button>
+                        </th>
+                        <th class="table_head">
+                                <lable for="time">זמן עבודה</lable>
+                        </th>
+                        <th class="table_head">
+                            <lable for="chapter_name">פרק</lable>
+                            <input type="text" name="chapter_name" id="chapter_name" placeholder="חפש פרק">
+                            <button type="submit" formaction="/search_chapter"><i class="fa fa-search"></i></button>
+                        </th>
+                        <th class="table_head">
+                            <lable for="subchapter_name">תת פרק</lable>
+                            <input type="text" name="subchapter_name" id="subchapter_name" placeholder="חפש תת פרק">
+                            <button type="submit" formaction="/subsearch_chapter"><i class="fa fa-search"></i></button>
+            </form>
+                        </th>
+                    </tr>
+                        {{range $i := .SearchRes}}
+                            <tr>
+                                <td>{{$i.BusName}}</td>
+                                <td>{{$i.Code}}</td>
+                                <td>{{$i.Description}}</td>
+                                <td>{{$i.JobTime}}</td>
+                                <td>{{$i.Chapter}}</td>
+                                <td>{{$i.Subchapter}}</td>
+                            </tr>
+                        {{end}}
+                    
+                </table>
+            </div>
+        </main>
+
+    </body>
+</html>

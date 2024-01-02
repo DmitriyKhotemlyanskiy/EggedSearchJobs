@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Egged work times database</title>
+        <link rel="stylesheet" type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    </head>
+    <body>
+        <main role="main" class="inner-cover" dir="rtl">
+            <h1>Buses work time form</h1>
+            <div class="msg" dir="ltr" style="padding: 30px; text-align: right; font-size: 1.5em; color: goldenrod; background: gray;">
+                {{range $i, $err := .Error}}
+                <p>{{$err}}</p><br>
+                {{end}}
+                <p>{{.LastJob}}</p>
+            </div>
+
+            <form action="/save_buses" method="post">
+                <input type="text" name="chapter" id="chapter" placeholder="פרק">
+                <input type="text" name="subchapter" id="subchapter" placeholder="תת פרק">
+                <input type="text" name="code" id="code" placeholder="מספר עבודה" value="">
+                <textarea name="op-description" id="op-description" rows="20" placeholder="תאור פאולה" value="huy" style="width: 400px; margin: 5px; font-size: 1.3em; padding: 10px;"></textarea>
+                <label>
+                    1    Mercedes Benz OC500 בין עירוני
+                    <input type="checkbox" name="bus1" placeholder="מרצדס OC500 ב.ע 6" value="1">
+                    <input type="number" name="job-time1" class="job-time" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    2    DAF SB4000 euro-5 בין עירוני
+                    <input type="checkbox" name="bus2" placeholder="דאף SB4000 יורו 5" value="2">
+                    <input type="number" name="job-time2" class="job-time" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    3    Golden Dragon euro-6 בין עירוני | עירוני
+                    <input type="checkbox" name="bus3" placeholder="גולדן דרגון ב.ע יורו 6" value="3">
+                    <input type="number" name="job-time3" class="job-time" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    4    MAN euro-5 עירוני
+                    <input type="checkbox" name="bus4" placeholder="מאן עירוני יורו 5" value="4">
+                    <input type="number" name="job-time4" class="job-time" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    5    Scania euro-5/6 עירוני
+                    <input type="checkbox" name="bus5" placeholder="סקניה עירוני יורו 5" value="5">
+                    <input type="number" name="job-time5" class="job-time" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    6    Volvo B12B euro-5 בין עירוני
+                    <input type="checkbox" name="bus6" placeholder="וולוו B12B יורו 5" value="6">
+                    <input type="number" name="job-time6" class="job-time" placeholder="זמן עבודה">
+                </label>
+                <label>
+                    7    Yutong Lion/Tiger euro-6 בין עירוני
+                    <input type="checkbox" name="bus7" placeholder="יוטונג ב.ע יורו 6" value="7">
+                    <input type="number" name="job-time7" class="job-time" placeholder="זמן עבודה">
+                </label>
+
+                <button id="btn-save">save</button>
+            </form>
+        </main>
+
+    </body>
+</html>

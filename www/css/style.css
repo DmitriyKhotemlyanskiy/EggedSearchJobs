@@ -1,0 +1,55 @@
+body{
+    background: gray;
+}
+form{
+    display:flex;
+    flex-direction:column;
+    padding-top: 30px;
+    padding-right: 40px;
+    position:relative;
+}
+h1{
+    text-align: center;
+    font-size: 2em;
+}
+.msg{
+    padding: 100px;
+    text-align: right;
+    font-size: 2em;
+    color: goldenrod;
+    background: gray;
+}
+#chapter{
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+}
+#subchapter{
+    width: 250px;
+    margin: 5px;
+    padding: 5px;
+}
+#code{
+    width: 100px;
+    margin: 5px;
+    padding: 5px;
+}
+#op-description{
+    width: 400px;
+    margin: 5px;
+    font-size: 1.3em;
+    padding: 10px;
+}
+label{
+    margin: 5px;
+    font-size: 1.4em;
+}
+#btn-save{
+    width: 50px;
+    height: 30px;
+    margin: 5px 100px 20px 0px;
+}
+.job-time{
+    padding: 5px;
+    width: 50px;
+}
