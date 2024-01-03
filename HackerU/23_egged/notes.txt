@@ -1,0 +1,41 @@
+#Deploying the app Using Ubuntu server with Nginx:
+#build app into $GOPATH/myapp
+#create a service file on /lib/systemd/system directory:
+    sudo nano /lib/systemd/system/goappname.service
+#Add the following snippet into the file:
+    [Unit]
+    Description=golanghttp
+
+    [Service]
+    Type=simple
+    Restart=always
+    RestartSec=5s
+    ExecStart=/home/user/mygolangfolderdirectory/main
+# You have to also specify WorkingDirectory if your go app contains multiple folder and subfolder.
+    WorkingDirectory=/home/user/mygolangfolderdirectory
+    [Install]
+    WantedBy=multi-user.target
+
+#Save and close the file. After that run these 3 following commands:
+    systemctl daemon-reload
+    systemctl start goweb
+    systemctl enable goweb
+
+#Configure Nginx as a Reverse Proxy
+    nano /etc/nginx/conf.d/go.conf
+
+#Add the following configurations:
+    server {
+    server_name your_doman;
+    location / {
+        proxy_pass http://localhost:port;
+    }
+}
+
+#Save and close the file. Check Nginx for any syntax errors:
+    nginx -t
+
+#Then, restart the Nginx service to reload the changes:
+    systemctl restart nginx
+
+#Good job! Lets open your browser and access to application http://your_doman
