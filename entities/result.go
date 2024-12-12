@@ -8,13 +8,13 @@ type Result struct {
 func (r *Result) Init() {
 	r.Options = []Option{
 		{Value: "", Text: "הכל", Selected: false},
-		{Value: "1", Text: "מרצדס OC500", Selected: false},
-		{Value: "2", Text: "דאף", Selected: false},
-		{Value: "3", Text: "גולדן דרגון", Selected: false},
-		{Value: "4", Text: "מאן", Selected: false},
-		{Value: "5", Text: "סקניה", Selected: false},
-		{Value: "6", Text: "וולוו B12B", Selected: false},
-		{Value: "7", Text: "יוטונג", Selected: false},
+		{Value: "1", Text: "Mercedes OC500", Selected: false},
+		{Value: "2", Text: "DAF", Selected: false},
+		{Value: "3", Text: "Golden Dragon", Selected: false},
+		{Value: "4", Text: "MAN", Selected: false},
+		{Value: "5", Text: "Scania", Selected: false},
+		{Value: "6", Text: "Volvo B12B", Selected: false},
+		{Value: "7", Text: "Yutong", Selected: false},
 	}
 }
 
