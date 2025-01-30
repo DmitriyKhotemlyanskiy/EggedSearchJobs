@@ -2,6 +2,7 @@ package builder
 
 import (
 	"telegram_bot/entities"
+	"telegram_bot/funcs"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
@@ -41,11 +42,37 @@ func (m MsgBuilder) BuildMsg(lang string, option string, jsonFile entities.Lang,
 	return msg
 }
 
+func (m MsgBuilder) OrderQueueDate(available *entities.AvailableTime, lang string, option string, jsonFile entities.Lang, chatID int64) tgbotapi.MessageConfig {
+	datetime := option
+	option = "11111111"
+	var msg tgbotapi.MessageConfig
+	if funcs.IsDate(datetime) {
+		msg = tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg+": "+datetime)
+	} else if funcs.IsTime(datetime) {
+		msg = tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg+": "+datetime)
+	} else {
+		msg = tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg)
+	}
+
+	keyboard := entities.KeyBoard{}.GetKeyBoard(available.GetDatesButtons())
+	keyboard = entities.KeyBoard{}.AppendButtons(keyboard, jsonFile.Lng[lang].Opt[option].Btns)
+	msg.ReplyMarkup = keyboard
+
+	return msg
+}
 func (m MsgBuilder) OrderQueueTime(available *entities.AvailableTime, lang string, option string, jsonFile entities.Lang, chatID int64) tgbotapi.MessageConfig {
 	datetime := option
 	option = "11111111"
-	msg := tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg+"\n"+datetime)
-	keyboard := entities.KeyBoard{}.GetKeyBoard(available.GetDatesButtons())
+	var msg tgbotapi.MessageConfig
+	if funcs.IsDate(datetime) {
+		msg = tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg+": "+datetime)
+	} else if funcs.IsTime(datetime) {
+		msg = tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg+": "+datetime)
+	} else {
+		msg = tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg)
+	}
+
+	keyboard := entities.KeyBoard{}.GetKeyBoard(available.GetTimesButtons(datetime))
 	keyboard = entities.KeyBoard{}.AppendButtons(keyboard, jsonFile.Lng[lang].Opt[option].Btns)
 	msg.ReplyMarkup = keyboard
 

@@ -84,16 +84,14 @@ func (s *SliceMsgsFromUser) AppendMsgFromCallback(callback *tgbotapi.CallbackQue
 	}
 }
 
-func (s SliceMsgsFromUser) AppendCallbackOrder(callback *tgbotapi.CallbackQuery) {
-	opt := callback.Data
-	str := callback.Data
+func (s SliceMsgsFromUser) AppendCallbackOrder(callback *tgbotapi.CallbackQuery, data string) {
 	msg := tgbotapi.Message{
 		MessageID:    callback.Message.MessageID,
 		From:         callback.From,
 		Date:         callback.Message.Date,
 		Chat:         callback.Message.Chat,
-		MediaGroupID: opt,
-		Text:         str,
+		MediaGroupID: data,
+		Text:         data,
 		Photo:        callback.Message.Photo,
 		Caption:      "callback",
 	}

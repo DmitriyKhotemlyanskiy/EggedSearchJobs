@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"telegram_bot/builder"
 	"telegram_bot/entities"
 	"telegram_bot/funcs"
@@ -65,10 +64,16 @@ func HandleCallback(bot *tgbotapi.BotAPI, update *tgbotapi.Update, option *strin
 	case dta == "11111111":
 		request := requests.NewRequest()
 		availableTimes := request.GetAllAvailableTimes()
-		arrFromUser.AppendCallbackOrder(update.CallbackQuery)
-		msg = builder.MsgBuilder{}.OrderQueueTime(availableTimes, *lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
+		arrFromUser.AppendCallbackOrder(update.CallbackQuery, dta)
+		msg = builder.MsgBuilder{}.OrderQueueDate(availableTimes, *lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
 	case funcs.IsDate(dta):
-		fmt.Println("/n/n/n/n" + dta + "/n/n/n/n")
+		request := requests.NewRequest()
+		availableTimes := request.GetAllAvailableTimes()
+		arrFromUser.AppendCallbackOrder(update.CallbackQuery, dta)
+		msg = builder.MsgBuilder{}.OrderQueueTime(availableTimes, *lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
+	case funcs.IsTime(dta):
+		*option = "111111111"
+		msg = builder.MsgBuilder{}.BuildMsg(*lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
 	}
 
 	arrFromUser.AppendMsgFromCallback(update.CallbackQuery, jsonFile, *lang)

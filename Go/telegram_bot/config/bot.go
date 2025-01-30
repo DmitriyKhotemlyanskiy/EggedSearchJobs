@@ -14,7 +14,7 @@ func (b Bot) GetBot() (bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel) {
 		log.Print(err)
 	}
 
-	bot.Debug = true
+	bot.Debug = false
 
 	log.Printf("Authorized on account %s", bot.Self.UserName)
 
