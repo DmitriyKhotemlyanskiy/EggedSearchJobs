@@ -1,0 +1,15 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+   } 
+html{
+    background-color: black;
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    margin:auto;
+    max-width: 1450px;
+    background-color: white;
+}

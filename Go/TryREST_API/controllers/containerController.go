@@ -6,17 +6,21 @@ import (
 	"encoding/json"
 	"examProg/entities"
 	"examProg/utils"
+	"net/http"
+
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"net/http"
 )
 
 type ContainerController struct{}
 
-//Gets all containers from DB table. This function takes pointer to DataBase
-//and returns http.HandlerFunc
+// Gets all containers from DB table. This function takes pointer to DataBase
+// and returns http.HandlerFunc
 func (c ContainerController) GetAllContainers(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, PATCH")
+		w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 		var container entities.Container
 		var containers []entities.Container
 		var errorMessage entities.Error
@@ -49,8 +53,8 @@ func (c ContainerController) GetAllContainers(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-//Get container by there ID from DB table. This function takes pointer to DataBase
-////and returns http.HandlerFunc
+// Get container by there ID from DB table. This function takes pointer to DataBase
+// //and returns http.HandlerFunc
 func (c ContainerController) GetContainerById(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var container entities.Container
@@ -84,8 +88,8 @@ func (c ContainerController) GetContainerById(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-//Add new container into DB. This function takes pointer to DataBase
-////and returns http.HandlerFunc
+// Add new container into DB. This function takes pointer to DataBase
+// //and returns http.HandlerFunc
 func (c ContainerController) AddContainer(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var errorMessage entities.Error
@@ -116,8 +120,8 @@ func (c ContainerController) AddContainer(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-//Gets all containers for specific Host ID. This function takes pointer to DataBase
-////and returns http.HandlerFunc
+// Gets all containers for specific Host ID. This function takes pointer to DataBase
+// //and returns http.HandlerFunc
 func (c ContainerController) GetContainersByHostId(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var container entities.ContainerByHost

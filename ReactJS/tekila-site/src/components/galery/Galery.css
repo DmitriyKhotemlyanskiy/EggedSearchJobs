@@ -1,0 +1,26 @@
+.galery{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.cards{
+    display: flex;
+    width: 100%;
+}
+.albcards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.galery h3{
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Heebo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: #93785F;
+}

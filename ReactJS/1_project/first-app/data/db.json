@@ -1,0 +1,22 @@
+{
+    "blogs": [
+        {
+            "title": "My First blog",
+            "body": "Why do we use it?\nIt is a long established fact that a reader will be distructed....",
+            "author": "Mario",
+            "id": 1
+        },
+        {
+            "title": "Opening Party!",
+            "body": "Occaecat adipisicing ullamco culpa pariatur excepteur ea ex excepteur culpa pariatur nostrud quis proident.",
+            "author": "Yosi",
+            "id": 2
+        },
+        {
+            "title": "Lorem Ipsum Paragraph",
+            "body": "Consequat eu do elit consectetur duis velit. Dolor deserunt voluptate irure magna laboris adipisicing sunt dolor voluptate sit ea duis. Do nulla duis non nulla quis eiusmod sint mollit laborum deserunt veniam. Et aute sunt consequat exercitation commodo. Ipsum sint non nulla ullamco est fugiat. Sint in eiusmod reprehenderit veniam occaecat eu. Fugiat qui do commodo ad veniam anim incididunt.",
+            "author": "Dimas",
+            "id": 3
+        }
+    ]
+}

@@ -5,16 +5,20 @@ import (
 	"database/sql"
 	"examProg/entities"
 	"examProg/utils"
-	"github.com/gorilla/mux"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 type HostController struct{}
 
-//Gets all hosts from DB table. This function takes pointer to DataBase
-//and returns http.HandlerFunc
+// Gets all hosts from DB table. This function takes pointer to DataBase
+// and returns http.HandlerFunc
 func (h HostController) GetAllHosts(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, PATCH")
+		w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 		var host entities.Host
 		var hosts []entities.Host
 		var errorMessage entities.Error
@@ -46,8 +50,8 @@ func (h HostController) GetAllHosts(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-//Get host by ID from DB table. This function takes pointer to DataBase
-//and returns http.HandlerFunc
+// Get host by ID from DB table. This function takes pointer to DataBase
+// and returns http.HandlerFunc
 func (h HostController) GetHostById(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var host entities.Host

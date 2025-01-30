@@ -4,10 +4,11 @@ import (
 	"examProg/config"
 	"examProg/controllers"
 	"fmt"
-	"github.com/gorilla/mux"
-	_ "github.com/mattn/go-sqlite3"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
@@ -21,6 +22,6 @@ func main() {
 	router.HandleFunc("/container/hosted/{host_id}", controllers.ContainerController{}.GetContainersByHostId(db)).Methods("GET")
 	router.HandleFunc("/container", controllers.ContainerController{}.AddContainer(db)).Methods("POST")
 	//Informs at which port the server is running:
-	fmt.Println("Server is running at port: 8080")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	fmt.Println("Server is running at port: 8000")
+	log.Fatal(http.ListenAndServe(":8000", router))
 }

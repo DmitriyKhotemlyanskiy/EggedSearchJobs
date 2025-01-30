@@ -1,0 +1,25 @@
+h1{
+    font-family: "Ms Madi", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5em;
+    text-align: center;
+    margin-bottom: 0%;
+    padding-top: 30px;
+}
+
+nav{
+    border-top: 1px solid #E7D2BE;
+    border-bottom: 1px solid #E7D2BE;
+}
+.buttons{
+    margin: auto;
+    display: flex;
+    width: 55%;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.header{
+    margin-top: 0%;
+    padding-top: 0%;
+}

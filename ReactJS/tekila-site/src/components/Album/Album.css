@@ -1,0 +1,5 @@
+.album img{
+    display: flex;
+    padding: 10px;
+    width: 250px;
+}

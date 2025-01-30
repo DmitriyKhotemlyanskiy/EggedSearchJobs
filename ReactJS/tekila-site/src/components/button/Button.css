@@ -1,0 +1,16 @@
+.linkButton{
+    border: none;
+    border-color: #BEE8C2;
+    height: 80px;
+    font-size: 1.4em;
+    font-family: "Heebo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background: white;
+}
+.linkButton:hover{
+    border-top: 4px solid #BEE8C2;
+    border-bottom: 4px solid #BEE8C2;
+    transition-duration: 0.3s;
+}
