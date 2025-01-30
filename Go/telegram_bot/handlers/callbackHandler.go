@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"fmt"
 	"telegram_bot/builder"
 	"telegram_bot/entities"
+	"telegram_bot/funcs"
 	"telegram_bot/requests"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
@@ -23,15 +25,16 @@ func HandleCallback(bot *tgbotapi.BotAPI, update *tgbotapi.Update, option *strin
 		*option = update.CallbackQuery.Data
 	}
 
-	msg := builder.MsgBuilder{}.BuildMsg(arrFromUser, *lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
+	msg := builder.MsgBuilder{}.BuildMsg(*lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
 	// Respond to the callback query, telling Telegram to show the user
 	// a message with the data received.
 	callback := tgbotapi.NewCallback(update.CallbackQuery.ID, update.CallbackQuery.Data)
 	if _, err := bot.Request(callback); err != nil {
 		panic(err)
 	}
-	switch update.CallbackQuery.Data {
-	case "0":
+	dta := update.CallbackQuery.Data
+	switch {
+	case dta == "0":
 		if _, err := bot.Send(builder.MsgBuilder{}.BuildMsgToAdmin(*arrFromUser)); err != nil {
 			panic(err)
 		}
@@ -39,7 +42,7 @@ func HandleCallback(bot *tgbotapi.BotAPI, update *tgbotapi.Update, option *strin
 		//Delete all old messages from the user and ready to next interaction with him
 		var NewArr []tgbotapi.Message
 		arrFromUser.AllMessages = NewArr
-		msg = builder.MsgBuilder{}.BuildMsg(arrFromUser, *lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
+		msg = builder.MsgBuilder{}.BuildMsg(*lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
 		newRespMessage, _ := bot.Send(msg)
 		//Delete message after user click on a button
 		delMessage := tgbotapi.NewDeleteMessage(respMessage.Chat.ID, respMessage.MessageID)
@@ -50,7 +53,7 @@ func HandleCallback(bot *tgbotapi.BotAPI, update *tgbotapi.Update, option *strin
 		*respMessage = newRespMessage
 		*option = "1"
 		return false
-	case "/start":
+	case dta == "/start":
 		var NewArr []tgbotapi.Message
 		arrFromUser.AllMessages = NewArr
 
@@ -59,9 +62,13 @@ func HandleCallback(bot *tgbotapi.BotAPI, update *tgbotapi.Update, option *strin
 		*respMessage = newRespMessage
 		*option = "1"
 		return false
-	case "11111111":
+	case dta == "11111111":
 		request := requests.NewRequest()
 		availableTimes := request.GetAllAvailableTimes()
+		arrFromUser.AppendCallbackOrder(update.CallbackQuery)
+		msg = builder.MsgBuilder{}.OrderQueueTime(availableTimes, *lang, *option, jsonFile, update.CallbackQuery.Message.Chat.ID)
+	case funcs.IsDate(dta):
+		fmt.Println("/n/n/n/n" + dta + "/n/n/n/n")
 	}
 
 	arrFromUser.AppendMsgFromCallback(update.CallbackQuery, jsonFile, *lang)

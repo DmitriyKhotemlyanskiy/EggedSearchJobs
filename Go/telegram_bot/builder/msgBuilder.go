@@ -33,11 +33,22 @@ func (m MsgBuilder) StartMsg(chatID int64) tgbotapi.MessageConfig {
 }
 
 // Builds messages to user (msg contain text and buttons that taken from JSON file)
-func (m MsgBuilder) BuildMsg(arr *entities.SliceMsgsFromUser, lang string, option string, jsonFile entities.Lang, chatID int64) tgbotapi.MessageConfig {
+func (m MsgBuilder) BuildMsg(lang string, option string, jsonFile entities.Lang, chatID int64) tgbotapi.MessageConfig {
 	msg := tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg)
 	keyboard := entities.KeyBoard{}.GetKeyBoard(jsonFile.Lng[lang].Opt[option].Btns)
 	msg.ReplyMarkup = keyboard
 	//arr.AppendMsgFromBot(msg)
+	return msg
+}
+
+func (m MsgBuilder) OrderQueueTime(available *entities.AvailableTime, lang string, option string, jsonFile entities.Lang, chatID int64) tgbotapi.MessageConfig {
+	datetime := option
+	option = "11111111"
+	msg := tgbotapi.NewMessage(chatID, jsonFile.Lng[lang].Opt[option].Msg+"\n"+datetime)
+	keyboard := entities.KeyBoard{}.GetKeyBoard(available.GetDatesButtons())
+	keyboard = entities.KeyBoard{}.AppendButtons(keyboard, jsonFile.Lng[lang].Opt[option].Btns)
+	msg.ReplyMarkup = keyboard
+
 	return msg
 }
 

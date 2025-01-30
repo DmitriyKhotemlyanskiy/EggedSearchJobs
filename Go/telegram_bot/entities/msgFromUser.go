@@ -84,6 +84,22 @@ func (s *SliceMsgsFromUser) AppendMsgFromCallback(callback *tgbotapi.CallbackQue
 	}
 }
 
+func (s SliceMsgsFromUser) AppendCallbackOrder(callback *tgbotapi.CallbackQuery) {
+	opt := callback.Data
+	str := callback.Data
+	msg := tgbotapi.Message{
+		MessageID:    callback.Message.MessageID,
+		From:         callback.From,
+		Date:         callback.Message.Date,
+		Chat:         callback.Message.Chat,
+		MediaGroupID: opt,
+		Text:         str,
+		Photo:        callback.Message.Photo,
+		Caption:      "callback",
+	}
+	s.AllMessages = append(s.AllMessages, msg)
+}
+
 // Get all recieved messages, callbacks and photos from user
 func (s SliceMsgsFromUser) GetAllMessages() string {
 	var str strings.Builder
